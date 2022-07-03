@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import BuyForm from './components/buyForm';
 
-const App: React.FC = () => (
+const App: FC = () => (
   <>
     <BuyForm />
   </>

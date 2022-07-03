@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 
 interface InputWithLabelProps {
   name: string;
@@ -7,7 +7,7 @@ interface InputWithLabelProps {
   handleChange(event: ChangeEvent): void;
 }
 
-const InputWithLabel: React.FC<InputWithLabelProps> = ({ name, label, currentValue, handleChange }) => {
+const InputWithLabel: FC<InputWithLabelProps> = ({ name, label, currentValue, handleChange }) => {
   return (
     <>
       <label>

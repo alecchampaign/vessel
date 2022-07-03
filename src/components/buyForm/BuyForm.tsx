@@ -1,9 +1,9 @@
-import React, { ChangeEvent, SyntheticEvent, useState } from 'react';
+import React, { ChangeEvent, SyntheticEvent, useState, FC } from 'react';
 
 import InputWithLabel from '../shared/InputWithLabel';
 import NumberInputWithLabel from '../shared/NumberInputWithLabel';
 
-const BuyForm: React.FC = () => {
+const BuyForm: FC = () => {
   const [keyValue, setKeyValue] = useState<string>("")
   const [secretValue, setSecretValue] = useState<string>("")
   const [amountValue, setAmountValue] = useState<number>(0);
