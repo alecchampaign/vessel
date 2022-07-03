@@ -3,7 +3,6 @@ const path = require('path');
 
 const config = {
   entry: [
-    'react-hot-loader/patch',
     './src/index.tsx'
   ],
   output: {
@@ -11,7 +10,7 @@ const config = {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: './dist'
+    static: path.join(__dirname, './dist')
   },
   module: {
     rules: [
