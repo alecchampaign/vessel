@@ -1,9 +1,29 @@
 package gemini
 
+const (
+	GEMINI_BASE_URL    = "https://api.gemini.com"
+	GEMINI_SANDBOX_URL = "https://api.sandbox.gemini.com"
+)
+
 type Api struct {
 	key    string
 	secret string
 	url    string
+}
+
+func New(isLive bool, key, secret string) Api {
+	var url string
+	if isLive {
+		url = GEMINI_BASE_URL
+	} else {
+		url = GEMINI_SANDBOX_URL
+	}
+
+	return Api{
+		key:    key,
+		secret: secret,
+		url:    url,
+	}
 }
 
 type OrderRequest struct {
@@ -21,8 +41,8 @@ type OrderRequest struct {
 }
 
 type OrderResponse struct {
-	OrderID           string  `json:"order_id"` // might need to make custom `ID` type + unmarshaller
-	ID                int     `json:"id"`
+	OrderId           string  `json:"order_id"` // might need to make custom `ID` type + unmarshaller
+	Id                int     `json:"id"`
 	Symbol            string  `json:"symbol"`
 	Exchange          string  `json:"exchange"` // maybe remove this if we don't need it
 	AvgExecutionPrice float64 `json:"avg_execution_price,string"`
@@ -35,7 +55,7 @@ type OrderResponse struct {
 	WasForced         bool    `json:"was_forced"`
 	ExecutedAmount    float64 `json:"executed_amount,string"`
 	RemainingAmount   float64 `json:"remaining_amount,string"`
-	ClientOrderID     string  `json:"client_order_id"`
+	ClientOrderId     string  `json:"client_order_id"`
 	// Options           []string  `json:"options"`
 	Price          float64 `json:"price,string"`
 	OriginalAmount float64 `json:"original_amount,string"`
